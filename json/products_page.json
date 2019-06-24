@@ -1,0 +1,26 @@
+[
+    {
+        "id": 67,
+        "name": "trousers",
+        "price": 159,
+        "img": "../img/img-6.jpg"
+    },
+    {
+        "id": 78,
+        "name": "shorts",
+        "price": 10,
+        "img": "../img/img-7.jpg"
+    },
+    {
+        "id": 89,
+        "name": "bag",
+        "price": 9999,
+        "img": "../img/img-8.jpg"
+    },
+    {
+        "id": 90,
+        "name": "bag & bag",
+        "price": 99.99,
+        "img": "../img/img-8.jpg"
+    }
+]

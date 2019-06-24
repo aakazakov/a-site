@@ -1,0 +1,1626 @@
+@import varaibles
+@import mixins
+@import styling
+
+html
+    height: 100%
+
+body
+    height: 100%
+    font-family: 'Lato', sans-serif
+
+a
+    text-decoration: none
+
+.global-wrapper
+    min-height: 100%
+    display: flex
+    flex-direction: column
+
+.top
+    flex-grow: 1
+
+.sub-zero
+    margin: 0px
+
+.container
+    width: $container-width
+    margin: 0 auto
+
+.header
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.17)
+    +border($forty-seventh-color)
+    background-color: $third-color
+    padding-top: 25px
+    padding-bottom: 25px
+    &__container
+        @extend .container
+        display: flex
+        justify-content: space-between
+        align-items: center
+    &__left-half
+        width: $container-width * 2/3
+        display: flex
+        justify-content: flex-start
+        align-items: center
+        padding-left: 10px
+    &__right-half
+        width: $container-width * 1/3
+        display: flex
+        justify-content: flex-end
+        align-items: flex-end
+        padding-right: 10px
+    &__account    
+        min-width: 135px
+        position: relative
+    &__account-list
+        display: flex
+        align-items: baseline
+        justify-content: space-between
+        padding: 15px
+        background-color: $first-color
+        color: $third-color
+        font-size: 15px
+        font-weight: 400
+        letter-spacing: 0.38px
+        cursor: default
+        position: relative
+    &__account-content
+        position: absolute
+        padding: 15px 0
+        transition: $trans
+        width: max-content
+        display: flex
+        flex-direction: column
+        align-items: center
+        justify-content: center
+        &:hover
+            & .header__account-content-img 
+                transform: scale(1.1) rotateY(360deg)
+            & .header__account-content-text
+                visibility: visible
+                text-shadow: -7px 13px 2px rgba(0, 0, 0, 0.72)
+    &__account-content-text
+        visibility: hidden
+        transition: $trans
+        color: $first-color
+        font-size: 20px
+        font-weight: 600
+    &__account-content-img 
+        transition: $trans
+    &__cart-reference
+        display: block
+        position: relative
+    &__cart-wrapper
+        position: relative
+    &__cart-drop-list
+        position: absolute
+        top: 55px
+        padding: 
+            left: 20px 
+            right: 20px
+            bottom: 20px 
+        border-radius: 5px
+        background-color: $third-color
+        +border($fifth-color)
+        z-index: 1
+        &::before
+            content: ''
+            width: 12px
+            height: 12px
+            background-color: $third-color
+            border-left: 1px solid $fifth-color
+            border-top: 1px solid $fifth-color
+            transform: rotate(45deg)
+            position: absolute
+            top: -7px
+            left: 35px
+    &__cart-drop-list-content
+        display: flex
+        flex-direction: column
+        min-width: 230px
+    &__cart-img
+        padding: 10px 25px 0px 25px
+    &__cart-indicator
+        background-color: $first-color
+        min-width: 19px
+        min-height: 19px
+        color: $third-color
+        font-size: 12px
+        font-weight: 700
+        border-radius: 50%
+        left: 50px
+        text-align: center
+        line-height: 19px
+        position: absolute
+
+.logo
+    display: flex
+    align-items: center
+    font-size: 27px
+    font-weight: 300
+    text-transform: uppercase
+    color: $second-color
+    &__text
+        @extend .sub-zero
+        padding: 20px 12px 12px 12px
+        letter-spacing: 0.68px
+        &_color-accent
+            color: $first-color
+            font-weight: 400
+
+.searcher
+    display: flex
+    padding-left: 25px
+    padding-right: 15px
+    &__browse
+        min-width: 100px
+        position: relative
+    &__browse-list
+        padding: 15px
+        +border($twentieth-color)
+        border-radius: 3px 0 0 3px
+        background-color: $sixth-color
+        background-image: linear-gradient(to bottom, $seventh-color 0%, $eighth-color 100%)
+        color: $second-color
+        font-size: 14px
+        font-weight: 300
+        transition: $trans
+        letter-spacing: 0.35px
+        cursor: default
+        &:hover
+            +hover-effect($first-color, initial)
+            border-color: $first-color
+    &__drop-menu
+        position: absolute
+        z-index: 2
+        top: 46px
+        +border($fifth-color)
+        border-radius: 5px
+        background-color: $third-color
+        width: 265px - 15px - 15px - 2px
+        padding: 5px 15px
+        &::before
+            content: ''
+            width: 12px
+            height: 12px
+            background-color: $third-color
+            border-left: 1px solid $fifth-color
+            border-top: 1px solid $fifth-color
+            transform: rotate(45deg)
+            position: absolute
+            top: -7px
+            left: 70px
+    &__drop-menu-heading
+        @extend .sub-zero
+        border-bottom: 1px solid $fifth-color
+        font-size: 14px
+        font-weight: 400
+        text-transform: uppercase
+        letter-spacing: 0.35px
+        padding: 10px 2px
+    &__ref
+        display: block 
+        padding: 5px 10px
+        color: $ninth-color
+        transition: $trans
+        &:hover
+            +hover-effect($first-color, initial)
+    &__drop-menu-items
+        @extend .sub-zero
+        list-style-type: none
+        padding: 10px 7px
+    &__drop-menu-item
+        color: $tenth-color
+        font-size: 14px
+        font-weight: 400
+        letter-spacing: 0.35px
+        transition: $trans
+        &:hover
+            +hover-effect($first-color, initial)
+    &__form
+        border-radius: 0 3px 3px 0
+        +border($twentieth-color)
+        border-left: none
+        background-color: $third-color
+    &__input
+        padding: 15px
+        border: none
+        color: $fourth-color
+        font-size: 14px
+        font-weight: 300
+        outline: none
+        width: 250px
+    &__input-btn
+        padding: 15px
+        border: none
+        color: $fourth-color
+        font-size: 14px
+        font-weight: 300
+        outline: none
+        background-color: $third-color
+        border-left: 1px solid $twentieth-color
+        transition: $trans
+        &:hover
+            +hover-effect($first-color, $fourth-color)
+            border-radius: 0 3px 3px 0
+            
+.menu
+    @extend .container
+    &__list
+        @extend .sub-zero
+        list-style-type: none
+        font-size: 14px
+        font-weight: 700
+        text-transform: uppercase
+        display: flex
+        justify-content: center
+    &__link
+        display: inline-block
+        color: $second-color
+        padding: 20px 25px
+        transition: $trans
+        &:hover
+            +hover-effect($first-color, initial)
+    &__item
+        position: relative
+        &:hover .menu__extended-list
+            display: flex
+    &__item-picked
+        border-bottom: 3px solid $eleventh-color
+    &__extended-list
+        display: flex
+        align-items: flex-start
+        padding: 5px 25px 15px
+        border-radius: 5px
+        +border($fifth-color)
+        background-color: $third-color
+        position: absolute
+        top: 55px
+        left: -25px
+        max-width: 845px
+        display: none
+        z-index: 1
+        &::before
+            content: ''
+            width: 12px
+            height: 12px
+            background-color: $third-color
+            border-left: 1px solid $fifth-color
+            border-top: 1px solid $fifth-color
+            transform: rotate(45deg)
+            position: absolute
+            z-index: 2
+            top: -7px
+            left: 85px
+    &__extended-block
+        padding-right: 45px
+        width: 235px
+        position: relative
+        &:last-of-type
+            padding-right: 0px
+        &_padding
+            padding-bottom: 125px
+    &__extended-ref
+        @extend .searcher__ref
+        padding-left: 0
+    &__extended-heading
+        @extend .searcher__drop-menu-heading
+        padding-bottom: 0px
+    &__extended-block-items
+        @extend .searcher__drop-menu-items
+        padding: 0
+        padding-top: 15px
+    &__extended-block-item
+        @extend .searcher__drop-menu-item
+        text-transform: none
+    &__extended-block-img
+        position: absolute
+        bottom: 0px
+        right: 0px
+    &__extended-block-text-in-img
+        color: $third-color
+        font-size: 22px
+        font-weight: 400
+        text-transform: uppercase
+        letter-spacing: 0.55px
+        position: absolute
+        bottom: 12px
+        right: 10px
+
+.slide
+    height: 615px
+    background-color: $fifth-color
+    &__container
+        @extend .container
+        height: 615px - 225px - 10px
+        padding: 225px 10px 10px
+        background-image: url("../img/promo.jpg")
+        background-repeat: no-repeat
+        background-position: 35px -50px
+    &__texts
+        color: $second-color
+        font-weight: 400
+        text-transform: uppercase
+        width: $container-width / 2
+        border-left: 10px solid $first-color
+        padding-left: 10px
+        &_color-accent
+            color: $first-color
+    &__text-one
+        @extend .sub-zero
+        font-size: 60px
+        line-height: 43px
+        letter-spacing: 1.5px
+    &__text-two
+        @extend .sub-zero
+        font-size: 40px
+        line-height: 34px
+        padding-top: 20px
+        letter-spacing: 1px
+
+.promo
+    @extend .container
+    display: flex
+    justify-content: center
+    align-items: flex-start
+    padding-top: 95px
+    &__link
+        display: block
+        margin-bottom: 20px
+        position: relative
+        transition: $trans
+        &:hover
+            transform: scale(1.1)
+            box-shadow: -7px 13px 16px 7px rgba(0, 0, 0, 0.27)
+            z-index: 1
+        &:last-of-type
+            margin-bottom: 0px
+    &__left-half
+        padding-right: 10px
+    &__right-half
+        padding-left: 10px
+    &__img-crutch
+        background-image:url("../img/promo-small-l.jpg"), url("../img/promo-small-l-background.png")
+        background-repeat: no-repeat
+        background-position: right, center
+        width: 560px
+        height: 261px
+    &__texts
+        position: absolute
+        font-weight: 400
+        text-transform: uppercase
+        background-color: $third-color
+        padding: 15px 20px
+        top: 25px
+    &__text-one
+        @extend .sub-zero
+        color: $second-color
+        font-size: 18px
+        letter-spacing: 0.45px
+    &__text-two
+        @extend .sub-zero
+        color: $first-color
+        font-size: 30px
+        letter-spacing: 0.75px
+
+.products-main-page
+    @extend .container
+    display: flex
+    flex-direction: column
+    align-items: center
+    padding-top: 100px
+    padding-bottom: 110px
+    &__texts
+        display: flex
+        flex-direction: column
+        align-items: center
+        padding-right: 15px
+        padding-left: 15px
+    &__text-one
+            @extend .sub-zero
+            color: $second-color
+            font-size: 30px
+            font-weight: 700
+            letter-spacing: 0.75px
+    &__text-two
+            @extend .sub-zero
+            color: $twelfth-color
+            font-size: 14px
+            font-weight: 400
+            padding-top: 15px
+            letter-spacing: 0.35px
+    &__products
+        padding-top: 60px
+        padding-bottom: 70px
+        display: grid
+        grid-template-rows: repeat(2, 1fr)
+        grid-template-columns: repeat(4, 1fr)
+        grid-gap: 30px
+    &__browse-btn
+        color: $third-color
+        font-size: 16px
+        font-weight: 700
+        background-color: $first-color
+        padding: 15px 25px
+        letter-spacing: 0.4px
+
+.product
+    width: 260px
+    transition: $trans
+    position: relative
+    &:hover
+        box-shadow: 0 5px 8px rgba(0, 0, 0, 0.16)
+        background-color: $third-color
+        .product__img
+            filter: brightness(30%)
+        .product__cart-btn
+            transition: $trans
+            visibility: visible
+    &__img
+        width: 100%
+        height: 280px  
+        object-fit: cover  
+        transition: $trans
+    &__info
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+        padding: 10px 5px
+    &__name
+        @extend .sub-zero
+        color: $second-color
+        font-size: 13px
+        font-weight: 400
+        text-transform: uppercase
+        padding: 10px
+        transition: $trans
+        &:hover
+            +hover-effect($first-color, initial)
+    &__cart-btn
+        position: absolute
+        +border($third-color)
+        display: flex
+        align-items: center
+        padding: 10px
+        top: 95px
+        left: 67px
+        cursor: default
+        visibility: hidden
+        &:hover
+            outline: 2px solid $third-color
+    &__cart-btn-text
+        @extend .sub-zero
+        color: $third-color
+        font-size: 13px
+        font-weight: 700
+        padding-left: 10px
+    &__price
+        @extend .sub-zero
+        color: $first-color
+        font-size: 16px
+        font-weight: 700
+        text-transform: uppercase
+        padding: 5px 10px
+
+.offer
+    @extend .container
+    min-height: 525px
+    background-color: $thirteenth-color
+    background-image: url("../img/offer-bg-2.png"), url("../img/offer-img.jpg")
+    background-repeat: no-repeat, no-repeat
+    position: relative
+    display: flex
+    justify-content: flex-end
+    margin-bottom: 100px
+    &__texts
+        position: absolute 
+        font-weight: 700
+        text-transform: uppercase
+        color: $third-color
+        padding: 10px
+        left: 40px
+        top: 145px
+        &_color-accent
+            color: $first-color
+    &__text-one
+        @extend .sub-zero
+        font-size: 54px
+        letter-spacing: 1.5px
+    &__text-two
+        @extend .sub-zero
+        font-size: 32px
+        letter-spacing: 0.9px
+    &__details
+        width: $container-width / 3 - 70px
+        background-color: $fourteenth-color
+        padding: 45px 40px 65px 30px
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+    &__details-unit
+        display: flex
+        align-items: flex-start
+    &__details-unit-texts
+        padding-left: 35px
+    &__details-unit-heading
+        @extend .sub-zero
+        color: $fifteenth-color
+        font-size: 20px
+        font-weight: 700
+        letter-spacing: 0.5px
+    &__details-unit-description
+        @extend .sub-zero
+        color: $fifteenth-color
+        font-size: 14px
+        font-weight: 300
+        padding-top: 15px
+        letter-spacing: 0.35px
+        line-height: 24px
+
+.feedback
+    height: 435px
+    background-color: $sixteenth-color
+    background-image: url("../img/feedback-bg-1.png"), url("../img/feedback-bg.png")
+    background-repeat: no-repeat, no-repeat
+    background-position: center, center
+    &__container
+        @extend .container
+        height: inherit
+        display: flex
+    &__left-half
+        width: $container-width / 2 - 70px - 1px
+        padding-right: 70px
+        display: flex
+        align-items: flex-start
+        padding-top: 110px
+        padding-bottom: 15px
+        border-right: 1px solid $third-color
+    &__left-half-wrapper
+        padding-left: 25px
+    &__left-half-texts
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+    &__left-half-quotation
+        @extend .sub-zero
+        color: $fourteenth-color
+        font-size: 16px
+        font-style: italic
+        letter-spacing: 0.4px
+        line-height: 26px
+    &__left-half-name
+        @extend .sub-zero
+        color: $first-color
+        font-size: 16px
+        font-weight: 700
+        letter-spacing: 0.4px
+        padding-top: 20px
+    &__left-half-addition
+        @extend .sub-zero
+        color: $fourteenth-color
+        font-size: 12px
+        font-weight: 300
+        letter-spacing: 0.3px
+    &__left-half-selectors
+        display: flex
+        padding-top: 40px - 30px
+    &__left-half-selector
+        width: 40px
+        height: 5px
+        background-color: $seventeenth-color
+        transition: $trans
+        &_wrapper
+            padding: 15px 7px
+            &:first-of-type
+                padding-left: 0
+            &:last-of-type
+                padding-right: 0
+            &:hover .feedback__left-half-selector
+                outline: 0.5px solid $seventeenth-color
+        &_color-accent
+            background-color: $first-color
+    &__right-half
+        width: $container-width / 2 - 90px
+        padding-left: 90px
+        padding-top: 150px
+    &__right-half-wrapper
+        display: flex
+        flex-direction: column
+        align-items: center
+    &__right-half-heading
+        @extend .sub-zero
+        font-size: 24px
+        letter-spacing: 0.6px
+        font-weight: 400
+        text-transform: uppercase
+        color: $fourteenth-color
+    &__right-half-text
+        @extend .sub-zero
+        font-size: 14px
+        letter-spacing: 0.35px        
+        text-transform: uppercase
+        color: $fourteenth-color
+        padding-top: 10px
+    &__right-half-form
+        padding-top: 35px
+    &__right-half-form-input
+        background-color: $eighteenth-color
+        border-radius: 23px 0 0 23px
+        border: none
+        opacity: 0.67
+        color: $fourteenth-color
+        font-size: 14px
+        font-weight: 400
+        letter-spacing: 0.35px
+        padding: 20px 30px
+        width: 280px
+        outline: none
+    &__right-half-form-btn
+        background-color: $first-color
+        border-radius: 0 23px 23px 0
+        border: none
+        color: $third-color
+        font-size: 14px
+        font-weight: 400
+        letter-spacing: 0.35px
+        padding: 20px
+        outline: none
+        transition: $trans
+        &:hover
+            cursor: crosshair
+            box-shadow: -17px 11px 16px 2px rgba(0, 0, 0, 0.51)
+
+.footer
+    display: flex
+    flex-direction: column
+    height: 570px
+    &__top-part
+        @extend .container
+        padding-top: 110px
+        padding-bottom: 90px
+        display: flex
+        justify-content: space-between
+        align-items: flex-start
+    &__info
+        width: $container-width * 2/5
+        height: 290px
+        overflow: hidden
+        &:hover
+            height: auto
+    &__info-text
+        @extend .sub-zero
+        padding-top: 30px
+        padding-right: 30px
+        color: $nineteenth-color
+        font-size: 14px
+        font-weight: 300
+        letter-spacing: 0.35px
+        line-height: 24px
+        min-width: 430px
+    &__nav-block
+        width: $container-width / 5
+        padding-top: 20px
+    &__nav-heading
+        @extend .sub-zero
+        display: block
+        color: $first-color
+        font-size: 18px
+        font-weight: 700
+        text-transform: uppercase
+        letter-spacing: 0.45px
+        padding-left: 30px
+    &__nav-menu
+        @extend .sub-zero
+        list-style-type: none
+        padding-top: 35px
+        padding-left: 0
+    &__nav-menu-item
+        font-size: 16px
+        font-weight: 400
+        letter-spacing: 0.4px
+    &__nav-ref
+        display: block
+        color: $nineteenth-color
+        padding: 10px 30px
+        transition: $trans
+        &:hover
+            +hover-effect($first-color, initial)
+    &__bottom-part
+        background-color: $twentieth-color
+        &_container
+            @extend .container
+            padding-top: 25px
+            padding-bottom: 25px
+            display: flex
+            justify-content: space-between
+            align-items: center 
+    &__copyright
+        @extend .sub-zero
+        color: $forty-eighth-color
+        font-size: 16px
+        font-weight: 400
+        letter-spacing: 0.4px
+    &__social
+        display: flex
+    &__social-icon
+        display: flex
+        justify-content: center
+        align-items: center
+        width: 32px
+        height: 32px
+        background-color: $third-color
+        color: $twenty-first-color
+        margin-right: 10px
+        transition: $trans
+        &:last-of-type
+            margin-right: 0
+        &:hover
+            +hover-effect($twenty-second-color, $first-color)
+
+.arrivals
+    padding-top: 65px
+    padding-bottom: 65px
+    background-color: $twenty-third-color
+    &__container
+        @extend .container
+        display: flex
+        justify-content: space-between
+        align-items: center
+    &__text
+        color: $first-color
+        font-size: 24px
+        font-weight: 400
+        text-transform: uppercase
+    &__breadcrumb
+        list-style-type: none
+        font-size: 14px
+        font-weight: 300
+        text-transform: uppercase
+    &__breadcrumb-item
+        display: inline
+        font-weight: 300
+        &+.arrivals__breadcrumb-item::before
+            color: $twenty-fourth-color
+            content: "/\00a0"
+            font-weight: 300
+        &_color-accent
+            color: $first-color
+            font-weight: 700
+            cursor: default
+    &__breadcrumb-item-ref      
+        color: $twenty-fourth-color
+        padding-top: 15px
+        padding-bottom: 15px
+        transition: $trans
+        &:hover
+            +hover-effect($first-color, initial)
+    
+.catalog
+    padding-top: 60px
+    &_container
+        @extend .container
+        display: flex
+        justify-content: space-between
+        align-items: flex-start
+    &__params
+        width: 235px
+    &__category
+        padding-top: 20px
+        &[open] > .catalog__category-name::after
+            content: '\25BC'
+        &[open] .catalog__category-name
+            color: $eleventh-color
+        &:first-of-type
+            padding-top: 0
+    &__category-name
+        display: flex
+        justify-content: space-between
+        color: $twenty-fifth-color
+        font-size: 14px
+        font-weight: 700
+        text-transform: uppercase
+        padding: 15px 10px
+        border-left: 5px solid $eleventh-color
+        border-bottom: 1px solid $twenty-sixth-color
+        outline: none
+        cursor: default
+        &::-webkit-details-marker
+            display: none
+        &::after
+            content: '\25B6'
+    &__category-list
+        @extend .sub-zero
+        list-style-type: none
+        padding: 10px
+    &__category-ref
+        color: $twenty-fifth-color
+        font-size: 14px
+        font-weight: 400
+        padding-top: 10px
+        padding-bottom: 10px
+        display: block
+        transition: $trans
+        &:hover
+            +hover-effect($first-color, initial)
+    &__main
+        width: $container-width - 235px - 55px
+        padding-left: 55px
+        padding-top: 15px
+    &__main-params
+        display: flex
+        align-items: flex-start
+        justify-content: space-between
+        padding-bottom: 40px
+    &__params-name
+        @extend .sub-zero
+        color: $twenty-fifth-color
+        font-size: 14px
+        font-weight: 700
+        text-transform: uppercase
+        &_grid-pos
+            grid-column-start: 1
+            grid-column-end: 5
+        &_shift
+            padding-left: 9px
+    &__params-trend-list
+        @extend .sub-zero
+        list-style-type: none
+        display: flex
+        flex-wrap: wrap
+        color: $twenty-fifth-color
+        font-size: 14px
+        font-weight: 400
+        padding-left: 0
+        padding-top: 15px
+        width: 180px
+        align-items: center
+        cursor: default
+    &__params-trend-item
+        padding: 5px 9px
+        position: relative
+        transition: $trans
+        &+.catalog__params-trend-item::before
+            content: "|"
+            color: $twenty-fifth-color
+            font-weight: 600
+            position: absolute
+            top: 5px
+            left: -2px
+        &:nth-of-type(4)::before
+            content: ''
+        &:hover
+            +hover-effect($third-color, $twenty-fifth-color)
+    &__params-size
+        display: grid
+        grid-template: 30px 1fr 1fr / repeat(4, 1fr)
+    &__params-size-item
+        color: $twenty-fifth-color
+        font-size: 14px
+        font-weight: 400
+        text-transform: uppercase
+        display: flex
+        align-items: center
+        line-height: 0
+        padding: 7px
+            left: 0
+        & input
+            opacity: 0
+            &:checked + .catalog__params-size-item-name::before
+                background-color: $third-color
+            &:checked + .catalog__params-size-item-name::after
+                visibility: visible
+    &__params-size-item-name
+        position: relative
+        &::before
+            content: ''
+            display: inline-block
+            height: 12px
+            width: 12px
+            border: 1px solid
+            position: absolute
+            top: -8px
+            left: -11px
+        &::after
+            content: ''
+            display: inline-block
+            width: 8px
+            height: 6px
+            border-left: 1px solid
+            border-bottom: 2px solid
+            transform: rotate(-45deg)
+            position: absolute
+            left: -8px
+            top: -7px
+            visibility: hidden
+    &__params-price
+        width: 260px
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+    &__params-price-value
+        color: $twenty-fifth-color
+        font-size: 14px
+        font-weight: 400
+        width: inherit
+        display: flex
+        justify-content: space-between
+        padding-top: 14px
+    &__params-price-range
+        padding-top: 18px
+    &__sorting
+        padding: 10px
+        width: inherit - 20px
+        background-color: $twenty-seventh-color
+        display: flex
+        align-items: center
+        justify-content: flex-start
+    &__sorting-unit
+        @extend .sub-zero
+        color: $twenty-fifth-color
+        font-size: 14px
+        font-weight: 400
+        +border($twenty-sixth-color)
+        background-color: $third-color
+        padding: 8px
+        margin-right: 10px
+        & select
+            color: $twenty-fifth-color
+            font-size: 14px
+            font-weight: 400
+            border: none
+            border-left: 1px solid $twenty-sixth-color 
+            outline: none
+    &__products
+        padding-top: 40px
+        padding-bottom: 40px
+        display: grid
+        grid-template-rows: repeat(3, 1fr)
+        grid-template-columns: repeat(3, 1fr)
+        grid-gap: 30px
+    &__extension
+        display: flex
+        align-items: center
+        justify-content: space-between
+        padding-bottom: 100px
+    &__paginator
+        display: inline-flex
+        justify-content: space-between
+        font-size: 16px
+        font-weight: bold
+        border-radius: 3px
+        +border($twenty-sixth-color)
+        background-color: $third-color
+        padding: 5px 10px
+        align-items: center
+    &__paginator-numbers
+        @extend .sub-zero
+        list-style-type: none
+        display: inline-flex
+        justify-content: space-between
+        padding-left: 0
+    &__paginator-ref
+        color: $twenty-eighth-color
+        transition: $trans
+        padding: 10px 7px
+        &:hover
+            +hover-effect($first-color, initial)
+        &:focus
+            color: $first-color
+    &__paginator-dots
+        @extend .catalog__paginator-ref
+    &__paginator-next
+        @extend .catalog__paginator-ref
+    &__paginator-back
+        @extend .catalog__paginator-ref
+    &__paginator-number-max
+        @extend .catalog__paginator-ref
+    &__view-all-btn
+        border-radius: 3px
+        +border($eleventh-color)
+        background-color: $third-color
+        color: $eleventh-color
+        font-size: 16px
+        font-weight: bold
+        padding: 15px 45px
+        outline: none
+        transition: $trans
+        &:hover
+            +hover-effect($eleventh-color, $twenty-sixth-color)
+    &__offer
+        background-color: $fourteenth-color
+        &_container
+            @extend .container
+            padding-top: 90px
+            padding-bottom: 115px
+            padding: 90px 25px 115px
+            display: flex
+            justify-content: space-between
+            align-items: flex-end
+    &__offer-details
+        display: flex
+        flex-direction: column
+        align-items: center
+    &__offer-texts
+        padding-left: 0
+        padding: 25px
+        display: flex
+        flex-direction: column
+        text-align: center  
+
+.slider
+    +border($twenty-ninth-color)
+    background-color: $thirtieth-color
+    display: flex
+    align-items: center
+    &__left-half
+        width: 50%
+        display: flex
+        justify-content: flex-start
+        padding-top: 365px
+        padding-bottom: 365px
+        &:hover .slider__mover
+            background-color: $first-color
+    &__right-half
+        @extend .slider__left-half
+        justify-content: flex-end
+    &__mover
+        background-color: $thirty-first-color
+        color: $third-color
+        font-weight: 400
+        padding: 20px
+        transition: $trans
+
+.product-description
+    height: 700px
+    &_container
+        @extend .container
+        position: relative
+.product-info
+    width: $container-width - 520px
+    padding: 70px 260px 120px
+    +border($twenty-ninth-color)
+    background-color: $third-color
+    display: flex
+    flex-direction: column
+    align-items: center
+    position: absolute
+    top: -70px
+    &__collection-block
+        display: flex
+        justify-content: center
+        position: relative
+    &__collection-name
+        @extend .sub-zero
+        padding-bottom: 15px
+        color: $first-color
+        font-size: 14px
+        font-weight: 700
+        text-transform: uppercase
+        border-bottom: 1px solid $twenty-ninth-color
+        &_color-underline
+            position: absolute
+            bottom: -1px
+            width: 65px
+            height: 3px
+            background-color: $eleventh-color
+    &__product-name
+        @extend .sub-zero
+        padding-top: 15px
+        color: $thirty-second-color
+        font-size: 18px
+        font-weight: 400
+        text-transform: uppercase
+        text-align: center
+    &__text
+        @extend .sub-zero
+        padding-top: 67px
+        color: $thirty-third-color
+        font-size: 14px
+        font-weight: 300
+        line-height: 24px
+        text-align: center
+    &__other
+        color: $thirty-fourth-color
+        font-size: 14px
+        font-weight: 700
+        text-transform: uppercase
+        display: flex
+        justify-content: center
+    &__wrapper-left
+        min-width: 30%
+        text-align: right
+        padding: 30px 20px 35px
+    &__wrapper-right
+        min-width: 30%
+        padding: 30px 20px 35px
+    &__material
+        color: $thirty-fifth-color
+    &__designer
+        @extend .product-info__material
+    &__price
+        color: $eleventh-color
+        font-size: 24px
+        font-weight: 700
+        border-bottom: 1px solid $twenty-ninth-color
+        width: 100%
+        text-align: center
+        padding-bottom: 43px
+    &__params
+        display: flex
+        justify-content: space-between
+        width: 100%
+        padding-top: 60px
+        padding-bottom: 30px
+    &__params-name
+        @extend .sub-zero
+        color: $thirty-fifth-color
+        font-size: 14px
+        font-weight: 700
+        text-transform: uppercase
+        padding-bottom: 15px
+    &__params-color
+        & > select
+            outline: none
+            padding: 12px 85px 13px 35px
+            color: $thirty-sixth-color
+            font-size: 13px
+            font-weight: 400
+    &__params-size
+        & > select
+            color: $thirty-sixth-color
+            font-size: 13px
+            font-weight: 400
+            line-height: 24px
+            text-transform: uppercase
+            outline: none
+            padding: 12px 105px 13px 15px
+    &__params-quantity
+        & > input
+            color: $thirty-sixth-color
+            font-size: 13px
+            font-weight: 400
+            outline: none
+            padding: 12px
+    &__add-btn
+        color: $eleventh-color
+        font-size: 16px
+        font-weight: 700
+        +border($eleventh-color)
+        background-color: $third-color
+        padding: 15px 205px
+        width: 210px
+        display: flex
+        align-items: center
+        justify-content: center
+        cursor: default
+        transition: all 0.2s
+        & > span
+            padding-left: 15px
+        &:hover /*animista.net (for other settings look in the _styling.sass )*/
+	        -webkit-animation: jello-vertical 0.9s both
+	        animation: jello-vertical 0.9s both
+
+.may-like
+    @extend .container
+    padding-top: 120px
+    padding-bottom: 70px
+    display: flex
+    flex-direction: column
+    align-items: center
+    &__text
+        @extend .sub-zero
+        padding:
+            right: 20px
+            left: 20px
+        color: $fourth-color
+        font-size: 24px
+        font-weight: 400
+        text-transform: uppercase
+    &__products
+        padding-top: 70px
+        display: grid
+        grid-template-rows: 1fr
+        grid-template-columns: repeat(4, 1fr)
+        grid-gap: 30px
+
+.cart
+    @extend .container
+    &__products
+        padding:
+            top: 90px
+            bottom: 80px
+    &__grid
+        display: grid
+        grid-template-rows: 1fr
+        grid-template-columns: 6fr 2fr 2fr 2fr 2fr 1fr
+    &__grid-item
+        padding: 
+            left: 5px
+            right: 5px
+    &__titles
+        padding-bottom: 20px
+        border-bottom: 1px solid $twenty-ninth-color
+    &__title
+        @extend .sub-zero
+        padding: 
+            left: 5px
+            right: 5px
+        text-align: center
+        color: $second-color
+        font-size: 13px
+        font-weight: 700
+        text-transform: uppercase
+        letter-spacing: -0.2px
+        &:first-of-type
+            text-align: left
+            padding-left: 0
+        &:last-of-type
+            text-align: end
+            padding-right: 0
+    &__items
+        padding-bottom: 45px
+    &__clear-or-continue
+        display: flex
+        justify-content: space-between
+        align-items: center
+    &__btn
+        +border($twenty-ninth-color)
+        background-color: $third-color
+        color: $fourth-color
+        font-size: 14px
+        font-weight: 700
+        text-transform: uppercase
+        outline: none
+        padding: 20px 40px
+        cursor: default
+        transition: $trans
+        &:hover
+            +hover-effect($third-color, $first-color)
+    &__other
+        padding-top: 63px
+        display: flex
+        align-items: flex-start
+        justify-content: space-between
+
+.cart-product
+    padding-top: 20px
+    padding-bottom: 20px
+    border-bottom: 1px solid $twenty-ninth-color
+    &__item
+        display: flex
+        align-items: center
+        justify-content: flex-start
+        padding-left: 0
+    &__img
+        width: 100px
+        height: auto
+    &__params
+        padding: 13px 20px
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+    &__name
+        @extend .sub-zero
+        color: $second-color
+        font-size: 13px
+        font-weight: 400
+        text-transform: uppercase
+        padding-bottom: 38px
+        padding-right: 20px
+        transition: $trans
+        &:hover
+            color: $first-color
+    &__txt
+        color: $thirty-seventh-color
+        font-weight: 400
+        font-size: 13px
+        line-height: 20px
+        text-align: left
+    &__color, .cart-product__size
+        color: $twenty-fifth-color
+        font-weight: 300
+    &__price
+        color: $thirty-eighth-color
+        font-size: 13px
+        font-weight: 400
+        display: flex
+        justify-content: center
+        align-items: center
+        max-width: 152px
+        word-break: break-all
+        text-align: center
+    &__quantity
+        display: flex
+        justify-content: center
+        align-items: center
+        & > input
+            color: $thirty-eighth-color
+            font-size: 13px
+            font-weight: 400  
+            line-height: 20px
+            outline: none
+            text-align: center
+            padding: 10px 20px
+            width: 55px
+    &__shipping
+        @extend .cart-product__price
+        text-transform: uppercase
+        max-width: 152px
+    &__subtotal
+        @extend .cart-product__price
+        max-width: 152px
+        word-break: break-all
+        text-align: center
+    &__del-btn
+        color: $thirty-ninth-color
+        font-size: 16px
+        font-weight: 400
+        display: flex
+        align-items: center
+        padding-left: 35px
+        padding-right: 0
+        transition: $trans
+        &_padding
+            padding: 10px
+            &:hover
+                color: $first-color
+
+.cart-drop-prod
+    display: flex
+    align-items: center
+    justify-content: space-between
+    width: auto
+    padding-bottom: 15px
+    padding-top: 20px
+    border-bottom: 1px solid $fortieth-color
+    &__img
+        width: 72px
+        height: auto
+    &__wrapper
+        display: flex
+        flex-direction: column
+        padding-right: 30px
+    &__name
+        color: $second-color
+        font-size: 12px
+        font-weight: 700
+        text-transform: uppercase
+        padding: 10px
+        transition: $trans
+        &:hover
+            color: $first-color
+    &__stars
+        color: $forty-first-color
+        font-size: 12px
+        padding: 
+            left: 10px
+            right: 10px
+    &__info
+        @extend .sub-zero
+        color: $first-color
+        font-size: 12px
+        font-weight: 400
+        text-transform: uppercase
+        padding: 10px
+    &__del-btn
+        color: $thirty-ninth-color
+        font-size: 16px
+        padding: 
+            top: 15px
+            bottom: 15px
+            left: 15px 
+        margin: auto 0
+        &:hover
+            cursor: pointer
+    &__total
+        display: flex
+        justify-content: space-between
+        color: $second-color
+        font-size: 16px
+        font-weight: 700
+        text-transform: uppercase
+        padding-top: 20px
+        & > p
+            @extend .sub-zero
+    &__btn
+        color: $fourth-color
+        font-size: 14px
+        font-weight: 700
+        text-transform: uppercase
+        padding: 20px
+        width: 225px - 40px
+        +border($twenty-ninth-color)
+        background-color: $third-color
+        text-align: center
+        margin-top: 11px
+        &:first-of-type
+            margin-top: 30px
+        &:hover
+            color: $first-color
+            border-color: $first-color
+
+.shipping-adress
+    display: flex
+    flex-direction: column
+    align-items: flex-start
+    &__form
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+    &__name
+        @extend .sub-zero
+        color: $second-color
+        font-size: 16px
+        font-weight: 700
+        text-transform: uppercase
+    &__form-unit
+        color: $forty-second-color
+        font-size: 13px
+        font-weight: 300
+        outline: none
+        padding: 16px
+        width: 319px
+        margin-top: 20px
+        &_width
+            width: 283px
+    &__form-btn
+        color: $fourth-color
+        font-size: 11px
+        font-weight: 700
+        text-transform: uppercase
+        +border($twenty-ninth-color)
+        background-color: $third-color
+        padding: 12px 14px
+        margin-top: 20px
+        outline: none
+        transition: $trans
+        &:hover
+            +hover-effect($third-color, $first-color)
+
+.coupone-discont
+    &__name
+        @extend .shipping-adress__name
+    &__text
+        @extend .sub-zero
+        color: $forty-third-color
+        font-size: 14px
+        font-weight: 300
+        margin-top: 25px
+    &__form
+        margin-top: 25px
+    &__form-unit
+        margin-top: 25px
+    
+.goto-checkout
+    background-color: $forty-fourth-color
+    padding: 40px
+    display: flex
+    flex-direction: column
+    align-items: flex-end
+    &__sub-total
+        @extend .sub-zero
+        color: $fourth-color        
+        font-size: 11px        
+        font-weight: 400       
+        text-transform: uppercase
+    &__grand-total
+        @extend .sub-zero
+        color: $second-color
+        font-size: 16px
+        font-weight: 700
+        text-transform: uppercase
+        margin-top: 15px
+    &__grand-total-value
+        color: $first-color
+    &__btn
+        color: $third-color
+        background-color: $first-color
+        font-size: 16px
+        font-weight: 700
+        text-transform: uppercase
+        padding: 20px 40px
+        outline: none
+        margin-top: 40px
+
+.checkout
+    @extend .container
+    padding: 
+        top: 60px
+        bottom: 90px
+    &__category
+        &[open] > .checkout__category-name::before
+            contain: ''
+    &__category-name
+        cursor: default
+        color: $second-color
+        font-size: 16px
+        font-weight: 700
+        text-transform: uppercase
+        padding: 
+            top: 30px
+            bottom: 30px
+        border-bottom: 1px solid $fifth-color
+        outline: none
+        display: block
+        &::-webkit-details-marker
+            display: none
+        &::before
+            content: ''
+    &__category-content
+        padding: 40px 35px 80px
+        display: flex
+        align-items: flex-start
+    &__category-content-area
+        display: flex
+        flex-direction: column
+    &__category-content-text-style-one
+        @extend .sub-zero
+        color: $second-color
+        font-size: 13px
+        font-weight: 400
+        text-transform: uppercase
+    &__category-content-text-style-two
+        @extend .sub-zero
+        color: $forty-fifth-color
+        font-size: 13px
+        font-weight: 400
+        padding-top: 15px
+        &_add-pad
+            padding-top: 30px
+        &_color-accent
+            color: $forty-sixth-color
+            padding-top: 20px
+    &__category-content-form-reg
+        padding-right: 290px
+    &__category-content-form-reg-input
+        @extend .sub-zero
+        color: $second-color
+        font-size: 12px
+        font-weight: 400
+        text-transform: uppercase
+        display: flex
+        align-items: flex-start
+        &_add-pad
+            padding-bottom: 20px
+        &_color-accent
+            color: $forty-sixth-color
+            font-size: 17px
+    &__category-content-form-btn
+        color: $fourth-color
+        font-size: 14px
+        font-weight: 700
+        text-transform: uppercase
+        padding: 20px 10px
+        text-align: center
+        width: 180px
+        +border($twenty-ninth-color)
+        background-color: $third-color
+        outline: none
+        transition: $trans
+        &:hover
+            +hover-effect($third-color, $fourth-color)
+    &__category-content-form-reg-btn
+        margin-top: 38px
+    &__category-content-form-signin
+        padding-top: 27px
+    &__category-content-form-signin-input
+        +border($twenty-ninth-color)
+        background-color: $third-color
+        outline: none
+        padding: 12px
+        width: 390px - 24px
+        &_add-margin
+            margin-top: 23px
+    &__category-content-form-forgot-pass-ref
+        color: $second-color
+        font-size: 14px
+        font-weight: 400
+        padding: 20px 25px
+        transform: $trans
+        &:hover
+            color: $first-color
+            border-bottom: 2px dashed $first-color
+    &__category-content-form-signin-btn
+        @extend .sub-zero
+        padding-top: 30px

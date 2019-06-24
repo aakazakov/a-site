@@ -1,0 +1,56 @@
+[
+    {
+        "id": 12,
+        "name": "t-shirt",
+        "price": 59,
+        "img": "../img/img-1_1.jpg"
+    },
+    {
+        "id": 23,
+        "name": "jacket",
+        "price": 69,
+        "img": "../img/img-2.jpg"
+    },
+    {
+        "id": 34,
+        "name": "shirt",
+        "price": 49,
+        "img": "../img/img-3.jpg"
+    },
+    {
+        "id": 45,
+        "name": "your lovely dress",
+        "price": 59.99,
+        "img": "../img/img-4.jpg"
+    },
+    {
+        "id": 56,
+        "name": "hat",
+        "price": 79,
+        "img": "../img/img-5.jpg"
+    },
+    {
+        "id": 67,
+        "name": "trousers",
+        "price": 159,
+        "img": "../img/img-6.jpg"
+    },
+    {
+        "id": 78,
+        "name": "shorts",
+        "price": 10,
+        "img": "../img/img-7.jpg"
+    },
+    {
+        "id": 89,
+        "name": "bag",
+        "price": 9999,
+        "img": "../img/img-8.jpg"
+    },
+    {
+        "id": 90,
+        "name": "bag & bag",
+        "price": 99.99,
+        "img": "../img/img-8.jpg"
+    }
+]

@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://kit.fontawesome.com/496e15468e.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i&display=swap"
+        rel="stylesheet">
+    <title>Single-product</title>
+</head>
+
+<body>
+    <div class="global-wrapper" id="app">
+        <div class="top">
+                <header class="header">
+                        <div class="header__container">
+                            <div class="header__left-half">
+                                <a class="logo" href="index.html">
+                                    <img class="logo__img" src="../img/logo.png" alt="logo">
+                                    <p class="logo__text">
+                                        BRAN<span class="logo__text_color-accent">D</span>
+                                    </p>
+                                </a>
+                                <div class="searcher">
+                                    <details class="searcher__browse">
+                                        <summary class="searcher__browse-list">Browse</summary>
+                                        <nav class="searcher__drop-menu">
+                                            <h3 class="searcher__drop-menu-heading">
+                                                <a class="searcher__ref" href="catalog.html">Women</a>
+                                            </h3>
+                                            <ul class="searcher__drop-menu-items">
+                                                <li class="searcher__drop-menu-item">
+                                                    <a class="searcher__ref" href="catalog.html">Dresses</a>
+                                                </li>
+                                                <li class="searcher__drop-menu-item">
+                                                    <a class="searcher__ref" href="catalog.html">Tops</a>
+                                                </li>
+                                                <li class="searcher__drop-menu-item">
+                                                    <a class="searcher__ref" href="catalog.html">Sweaters/Knits</a>
+                                                </li>
+                                                <li class="searcher__drop-menu-item">
+                                                    <a class="searcher__ref" href="catalog.html">Jackets/Coats</a>
+                                                </li>
+                                                <li class="searcher__drop-menu-item">
+                                                    <a class="searcher__ref" href="catalog.html">Blazers</a>
+                                                </li>
+                                                <li class="searcher__drop-menu-item">
+                                                    <a class="searcher__ref" href="catalog.html">Denim</a>
+                                                </li>
+                                                <li class="searcher__drop-menu-item">
+                                                    <a class="searcher__ref" href="catalog.html">Leggings/Pants</a>
+                                                </li>
+                                                <li class="searcher__drop-menu-item">
+                                                    <a class="searcher__ref" href="catalog.html">Skirts/Shorts</a>
+                                                </li>
+                                                <li class="searcher__drop-menu-item">
+                                                    <a class="searcher__ref" href="catalog.html">Accessories</a>
+                                                </li>
+                                                <li class="searcher__drop-menu-item">
+                                                    <a class="searcher__ref" href="catalog.html">Bags/Purses</a>
+                                                </li>
+                                                <li class="searcher__drop-menu-item">
+                                                    <a class="searcher__ref" href="catalog.html">Swimwear/Underwear</a>
+                                                </li>
+                                                <li class="searcher__drop-menu-item">
+                                                    <a class="searcher__ref" href="catalog.html">Nightwear</a>
+                                                </li>
+                                                <li class="searcher__drop-menu-item">
+                                                    <a class="searcher__ref" href="catalog.html">Shoes</a>
+                                                </li>
+                                                <li class="searcher__drop-menu-item">
+                                                    <a class="searcher__ref" href="catalog.html">Beauty</a>
+                                                </li>
+                                            </ul>
+                                            <h3 class="searcher__drop-menu-heading">
+                                                <a class="searcher__ref" href="catalog.html">Men</a>
+                                            </h3>
+                                            <ul class="searcher__drop-menu-items">
+                                                <li class="searcher__drop-menu-item">
+                                                    <a class="searcher__ref" href="catalog.html">Dresses</a>
+                                                </li>
+                                                <li class="searcher__drop-menu-item">
+                                                    <a class="searcher__ref" href="catalog.html">Tops</a>
+                                                </li>
+                                                <li class="searcher__drop-menu-item">
+                                                    <a class="searcher__ref" href="catalog.html">Sweaters/Knits</a>
+                                                </li>
+                                                <li class="searcher__drop-menu-item">
+                                                    <a class="searcher__ref" href="catalog.html">Jackets/Coats</a>
+                                                </li>
+                                                <li class="searcher__drop-menu-item">
+                                                    <a class="searcher__ref" href="catalog.html">Blazers</a>
+                                                </li>
+                                                <li class="searcher__drop-menu-item">
+                                                    <a class="searcher__ref" href="catalog.html">Denim</a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </details>
+                                    <form class="searcher__form" action="#">
+                                        <input class="searcher__input" placeholder="Search for Item..." type="text">
+                                        <button class="searcher__input-btn" type="button">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="header__right-half">
+                                <div class="header__cart-wrapper">
+                                    <a class="header__cart-reference" href="cart.html">
+                                        <img class="header__cart-img" src="../img/cart_black.svg" alt="cart">
+                                        <span class="header__cart-indicator">0</span>
+                                    </a>
+                                    <section class="header__cart-drop-list">
+
+                                        <cart-drop-list ref:="cart-drop-list"></cart-drop-list>
+
+                                    </section>
+                                </div>
+                                <details class="header__account">
+                                    <summary class="header__account-list">My Account</summary>
+                                    <div class="header__account-content">
+                                        <img class="header__account-content-img" src="../img/my-account.png" alt="person">
+                                        <span class="header__account-content-text">have a nice day</span>
+                                    </div>
+                                </details>
+                            </div>
+                        </div>
+                    </header>
+                    <nav class="menu">
+                        <ul class="menu__list">
+                            <li class="menu__item menu__item-picked">
+                                <a class="menu__link" href="index.html">Home</a>
+                            </li>
+                            <li class="menu__item">
+                                <a class="menu__link" href="catalog.html">Man</a>
+                                <nav class="menu__extended-list">
+                                    <div class="menu__extended-block">
+                                        <h3 class="menu__extended-heading">
+                                            <a class="menu__extended-ref" href="catalog.html">Women</a>
+                                        </h3>
+                                        <ul class="menu__extended-block-items">
+                                            <li class="menu__extended-block-item">
+                                                <a class="menu__extended-ref" href="catalog.html">Dresses</a>
+                                            </li>
+                                            <li class="menu__extended-block-item">
+                                                <a class="menu__extended-ref" href="catalog.html">Tops</a>
+                                            </li>
+                                            <li class="menu__extended-block-item">
+                                                <a class="menu__extended-ref" href="catalog.html">Sweaters/Knits</a>
+                                            </li>
+                                            <li class="menu__extended-block-item">
+                                                <a class="menu__extended-ref" href="catalog.html">Jackets/Coats</a>
+                                            </li>
+                                            <li class="menu__extended-block-item">
+                                                <a class="menu__extended-ref" href="catalog.html">Blazers</a>
+                                            </li>
+                                            <li class="menu__extended-block-item">
+                                                <a class="menu__extended-ref" href="catalog.html">Denim</a>
+                                            </li>
+                                            <li class="menu__extended-block-item">
+                                                <a class="menu__extended-ref" href="catalog.html">Leggings/Pants</a>
+                                            </li>
+                                            <li class="menu__extended-block-item">
+                                                <a class="menu__extended-ref" href="catalog.html">Skirts/Shorts</a>
+                                            </li>
+                                            <li class="menu__extended-block-item">
+                                                <a class="menu__extended-ref" href="catalog.html">Accessories</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="menu__extended-block">
+                                        <h3 class="menu__extended-heading">
+                                            <a class="menu__extended-ref" href="catalog.html">Women</a>
+                                        </h3>
+                                        <ul class="menu__extended-block-items">
+                                            <li class="menu__extended-block-item">
+                                                <a class="menu__extended-ref" href="catalog.html">Dresses</a>
+                                            </li>
+                                            <li class="menu__extended-block-item">
+                                                <a class="menu__extended-ref" href="catalog.html">Tops</a>
+                                            </li>
+                                            <li class="menu__extended-block-item">
+                                                <a class="menu__extended-ref" href="catalog.html">Sweaters/Knits</a>
+                                            </li>
+                                            <li class="menu__extended-block-item">
+                                                <a class="menu__extended-ref" href="catalog.html">Jackets/Coats</a>
+                                            </li>
+                                        </ul>
+                                        <h3 class="menu__extended-heading">
+                                            <a class="menu__extended-ref" href="catalog.html">Women</a>
+                                        </h3>
+                                        <ul class="menu__extended-block-items">
+                                            <li class="menu__extended-block-item">
+                                                <a class="menu__extended-ref" href="catalog.html">Dresses</a>
+                                            </li>
+                                            <li class="menu__extended-block-item">
+                                                <a class="menu__extended-ref" href="catalog.html">Tops</a>
+                                            </li>
+                                            <li class="menu__extended-block-item">
+                                                <a class="menu__extended-ref" href="catalog.html">Sweaters/Knits</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="menu__extended-block menu__extended-block_padding">
+                                        <h3 class="menu__extended-heading">
+                                            <a class="menu__extended-ref" href="catalog.html">Women</a>
+                                        </h3>
+                                        <ul class="menu__extended-block-items">
+                                            <li class="menu__extended-block-item">
+                                                <a class="menu__extended-ref" href="catalog.html">Dresses</a>
+                                            </li>
+                                            <li class="menu__extended-block-item">
+                                                <a class="menu__extended-ref" href="catalog.html">Tops</a>
+                                            </li>
+                                            <li class="menu__extended-block-item">
+                                                <a class="menu__extended-ref" href="catalog.html">Sweaters/Knits</a>
+                                            </li>
+                                            <li class="menu__extended-block-item">
+                                                <a class="menu__extended-ref" href="catalog.html">Jackets/Coats</a>
+                                            </li>
+                                        </ul>
+                                        <img class="menu__extended-block-img" src="../img/the-man.jpg" alt="man">
+                                        <span class="menu__extended-block-text-in-img">Super<br>sale!</span>
+                                    </div>
+                                </nav>
+                            </li>
+                            <li class="menu__item">
+                                <a class="menu__link" href="catalog.html">Women</a>
+                            </li>
+                            <li class="menu__item">
+                                <a class="menu__link" href="catalog.html">Kids</a>
+                            </li>
+                            <li class="menu__item">
+                                <a class="menu__link" href="catalog.html">Accoseriese</a>
+                            </li>
+                            <li class="menu__item">
+                                <a class="menu__link" href="catalog.html">Featured</a>
+                            </li>
+                            <li class="menu__item">
+                                <a class="menu__link" href="catalog.html">Hot Deals</a>
+                            </li>
+                        </ul>
+                    </nav>
+            <div class="arrivals">
+                <div class="arrivals__container">
+                    <span class="arrivals__text">New Arrivals</span>
+                    <ul class="arrivals__breadcrumb">
+                        <li class="arrivals__breadcrumb-item">
+                            <a class="arrivals__breadcrumb-item-ref" href="index.html">Home</a>
+                        </li>
+                        <li class="arrivals__breadcrumb-item">
+                            <a class="arrivals__breadcrumb-item-ref" href="catalog.html">Men</a>
+                        </li>
+                        <li class="arrivals__breadcrumb-item arrivals__breadcrumb-item_color-accent">
+                            New Arrivals
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="slider">
+                <div class="slider__left-half">
+                    <div class="slider__back slider__mover">&#10094;</div>
+                </div>
+                <img src="../img/single-women.jpg" alt="women">
+                <div class="slider__right-half">
+                    <div class="slider__next slider__mover">&#10095;</div>
+                </div>
+            </div>
+            <section class="product-description">
+                <div class="product-description_container">
+                    <div class="product-info">
+                        <div class="product-info__collection-block">
+                            <h2 class="product-info__collection-name">WOMEN COLLECTION</h2>
+                            <div class="product-info__collection-name_color-underline"></div>
+                        </div>
+                        <h3 class="product-info__product-name">
+                            Moschino Cheap And Chic
+                        </h3>
+                        <p class="product-info__text">
+                            Compellingly actualize fully researched processes
+                            before proactive outsourcing. Progressively syndicate
+                            collaborative architectures before cutting-edge services.
+                            Completely visualize parallel core competencies rather
+                            than exceptional portals.
+                        </p>
+                        <div class="product-info__other">
+                            <div class="product-info__wrapper-left">
+                                MATERIAL: <span class="product-info__material">COTTON</span>
+                            </div>
+                            <div class="product-info__wrapper-right">
+                                DESIGNER: <span class="product-info__designer">BINBURHAN</span>
+                            </div>
+                        </div>
+                        <span class="product-info__price">$561</span>
+                        <div class="product-info__params">
+                            <div class="product-info__params-color">
+                                <h4 class="product-info__params-name">CHOOSE COLOR</h4>
+                                <select name="color">
+                                    <option value="red">red</option>
+                                    <option value="green">green</option>
+                                    <option value="blue">blue</option>
+                                </select>
+                            </div>
+                            <div class="product-info__params-size">
+                                <h4 class="product-info__params-name">CHOOSE SIZE</h4>
+                                <select name="size">
+                                    <option value="xxl">XXL</option>
+                                    <option value="xl">XL</option>
+                                    <option value="l">L</option>
+                                    <option value="m">M</option>
+                                    <option value="s">S</option>
+                                </select>
+                            </div>
+                            <div class="product-info__params-quantity">
+                                <h4 class="product-info__params-name">QUANTITY</h4>
+                                <input type="text" placeholder="2">
+                            </div>
+                        </div>
+                        <div class="product-info__add-btn">
+                            <img src="../img/red-cart.svg" alt="cart">
+                            <span>Add to Cart</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--TODO hidden -->
+            <section class="may-like">
+                <p class="may-like__text">you may like also</p>
+
+                <products-single-pg ref="products-single-pg"></products-single-pg>
+
+            </section>
+        </div>
+        <section class="feedback">
+            <div class="feedback__container">
+                <div class="feedback__left-half">
+                    <img class="feedback__left-half-img" src="../img/feedback-face.png" alt="face">
+                    <div class="feedback__left-half-wrapper">
+                        <div class="feedback__left-half-texts">
+                            <p class="feedback__left-half-quotation">
+                                “Vestibulum quis porttitor dui! Quisque viverra nunc mi,
+                                a pulvinar purus condimentum a. Aliquam condimentum
+                                mattis neque sed pretium”
+                            </p>
+                            <span class="feedback__left-half-name">Bin Burhan</span>
+                            <span class="feedback__left-half-addition">Dhaka, Bd</span>
+                        </div>
+                        <div class="feedback__left-half-selectors">
+                            <div class="feedback__left-half-selector_wrapper">
+                                <div class="feedback__left-half-selector"></div>
+                            </div>
+                            <div class="feedback__left-half-selector_wrapper">
+                                <div class="feedback__left-half-selector
+                                feedback__left-half-selector_color-accent"></div>
+                            </div>
+                            <div class="feedback__left-half-selector_wrapper">
+                                <div class="feedback__left-half-selector"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="feedback__right-half">
+                    <div class="feedback__right-half-wrapper">
+                        <h2 class="feedback__right-half-heading">Subscribe</h2>
+                        <p class="feedback__right-half-text">FOR OUR NEWLETTER AND PROMOTION</p>
+                        <form class="feedback__right-half-form" action="#">
+                            <input class="feedback__right-half-form-input" type="email" placeholder="Enter Your Email">
+                            <button class="feedback__right-half-form-btn" type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer">
+                <div class="footer__top-part">
+                    <section class="footer__info">
+                        <a class="logo" href="index.html">
+                            <img class="logo__img" src="../img/logo.png" alt="logo">
+                            <p class="logo__text">
+                                BRAN<span class="logo__text_color-accent">D</span>
+                            </p>
+                        </a>
+                        <div class="footer__info-text">
+                            Objectively transition extensive data rather than cross functional solutions.
+                            Monotonectally syndicate multidisciplinary materials before go forward benefits.
+                            Intrinsicly syndicate an expanded array of processes and cross-unit partnerships.
+                            <br>
+                            <br>
+                            Efficiently plagiarize 24/365 action items and focused infomediaries.
+                            Distinctively seize superior initiatives for wireless technologies. Dynamically optimize.
+                            <br>
+                            <br>
+                            Objectively strategize seamless relationships via resource sucking testing procedures.
+                            Proactively cultivate next-generation results for value-added methodologies. Dynamically
+                            plagiarize
+                            unique methodologies after performance based methodologies.
+                            Monotonectally empower stand-alone mindshare rather than ubiquitous opportunities. Dynamically
+                            orchestrate resource sucking scenarios after alternative synergy.
+                            Compellingly envisioneer corporate methods of empowerment before standards compliant
+                            technologies.
+                            Objectively facilitate progressive.
+                        </div>
+                    </section>
+                    <nav class="footer__nav-block">
+                        <h2 class="footer__nav-heading">COMPANY</h2>
+                        <ul class="footer__nav-menu">
+    
+                            <li class="footer__nav-menu-item">
+                                <a class="footer__nav-ref" href="index.html">Home</a>
+                            </li>
+                            <li class="footer__nav-menu-item">
+                                <a class="footer__nav-ref" href="#">Shop</a>
+                            </li>
+                            <li class="footer__nav-menu-item">
+                                <a class="footer__nav-ref" href="#">About</a>
+                            </li>
+                            <li class="footer__nav-menu-item">
+                                <a class="footer__nav-ref" href="#">How It Works</a>
+                            </li>
+                            <li class="footer__nav-menu-item">
+                                <a class="footer__nav-ref" href="#">Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <nav class="footer__nav-block">
+                        <h2 class="footer__nav-heading">INFORMATION</h2>
+                        <ul class="footer__nav-menu">
+                            <li class="footer__nav-menu-item">
+                                <a class="footer__nav-ref" href="#">Tearms & Condition</a>
+                            </li>
+                            <li class="footer__nav-menu-item">
+                                <a class="footer__nav-ref" href="#">Privacy Policy</a>
+                            </li>
+                            <li class="footer__nav-menu-item">
+                                <a class="footer__nav-ref" href="#">How to Buy</a>
+                            </li>
+                            <li class="footer__nav-menu-item">
+                                <a class="footer__nav-ref" href="#">How to Sell</a>
+                            </li>
+                            <li class="footer__nav-menu-item">
+                                <a class="footer__nav-ref" href="#">Promotion</a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <nav class="footer__nav-block">
+                        <h2 class="footer__nav-heading">SHOP CATEGORY</h2>
+                        <ul class="footer__nav-menu">
+                            <li class="footer__nav-menu-item">
+                                <a class="footer__nav-ref" href="catalog.html">Men</a>
+                            </li>
+                            <li class="footer__nav-menu-item">
+                                <a class="footer__nav-ref" href="catalog.html">Women</a>
+                            </li>
+                            <li class="footer__nav-menu-item">
+                                <a class="footer__nav-ref" href="catalog.html">Child</a>
+                            </li>
+                            <li class="footer__nav-menu-item">
+                                <a class="footer__nav-ref" href="catalog.html">Apparell</a>
+                            </li>
+                            <li class="footer__nav-menu-item">
+                                <a class="footer__nav-ref" href="catalog.html">Brows All</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="footer__bottom-part">
+                    <div class="footer__bottom-part_container">
+                        <span class="footer__copyright">© 2017 Brand All Rights Reserved.</span>
+                        <div class="footer__social">
+                            <a class="footer__social-icon" href="#">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a class="footer__social-icon" href="#">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a class="footer__social-icon" href="#">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a class="footer__social-icon" href="#">
+                                <i class="fab fa-pinterest-p"></i>
+                            </a>
+                            <a class="footer__social-icon" href="#">
+                                <i class="fab fa-google-plus-g"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+        </footer>
+    </div>
+    <script src="../js/vue.js"></script>
+    <script src="../js/main_pg_comp.js"></script>
+    <script src="../js/catalog_comp.js"></script>
+    <script src="../js/cart_comp.js"></script>
+    <script src="../js/single_pg_comp.js"></script>
+    <script src="../js/cart_drop_comp.js"></script>
+    <script src="../js/product_item_comp.js"></script>
+    <script src="../js/main_vue.js"></script>
+</body>
+
+</html>
