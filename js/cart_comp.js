@@ -1,9 +1,13 @@
-Vue.component('cart-items', {
+const CartItems = {
     data() {
         return {
             catalogUrl: '../json/products_cart.json',
             cartProducts: []
         }
+    },
+
+    components: {
+        'CartProduct': CartProduct
     },
 
     mounted() {
@@ -17,19 +21,20 @@ Vue.component('cart-items', {
 
     methods: {
         addProductToCart(product) {
-            this.$parent.getJson('../json/addToCart.json')
-                .then(data => {
-                    if (data.result) {
-                        let find = this.cartProducts
-                            .find(elem => elem.id === product.id);
-                        if (find) {
-                            find.quantity++;
-                        } else {
-                            let productInCart = {quantity: 1, ...product};
-                            this.cartProducts.push(productInCart);
-                        }
-                    }
-                })
+            console.log(product);
+            // this.$parent.getJson('../json/addToCart.json')
+            //     .then(data => {
+            //         if (data.result) {
+            //             let find = this.cartProducts
+            //                 .find(elem => elem.id === product.id);
+            //             if (find) {
+            //                 find.quantity++;
+            //             } else {
+            //                 let productInCart = {quantity: 1, ...product};
+            //                 this.cartProducts.push(productInCart);
+            //             }
+            //         }
+            //     })
         }
     },
 
@@ -40,4 +45,4 @@ Vue.component('cart-items', {
                     :cart-product="product"
                     ></cart-product>
                 </section>`
-});
+};

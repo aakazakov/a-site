@@ -1,11 +1,11 @@
 //TODO add click handler to btn...
 
-Vue.component('product-item-ctlg', {
+const ProductItemCtlg = {
     props: ['productItemCtlg'],
     template: ` <div class="product">
                     <img class="product__img" :src="productItemCtlg.img" :alt="productItemCtlg.name">
                     <div class="product__cart-btn"
-                    @click="$root.$refs.cartItems.addProductToCart(productItemCtlg)">
+                    @click="$root.$options.components.CartItems.methods.addProductToCart(productItemCtlg)">
                         <img class="product__cart-btn-img" src="../img/cart_white.svg" alt="cart">
                         <p class="product__cart-btn-text">Add to Cart</p>
                     </div>
@@ -16,9 +16,9 @@ Vue.component('product-item-ctlg', {
                         <p class="product__price">$<span>{{ productItemCtlg.price }}</span></p>
                     </div>
                 </div> `
-});
+};
 
-Vue.component('cart-product', {
+const CartProduct = {
     props: ['cartProduct'],
     template: `<div class="cart-product cart__grid">
                     <div class="cart-product__item cart__grid-item">
@@ -43,9 +43,9 @@ Vue.component('cart-product', {
                             <i class="fas fa-times-circle cart-product__del-btn_padding"></i>
                         </span>
                     </div>`
-});
+};
 
-Vue.component('cart-drop-prod', {
+const CartDropProd = {
     props: ['cartDropProd'],
     template: `<div class="cart-drop-prod">
                     <img class="cart-drop-prod__img" :src="cartDropProd.img" :alt="cartDropProd.name">
@@ -66,4 +66,4 @@ Vue.component('cart-drop-prod', {
                     </div>
                     <i class="fas fa-times-circle cart-drop-prod__del-btn"></i>
                 </div>`
-});  
+};  

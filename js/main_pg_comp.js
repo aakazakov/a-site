@@ -1,9 +1,13 @@
-Vue.component('products-main', {
+const ProductsMain = {
     data() {
         return {
             catalogUrl: '../json/products_main.json',
             receivedProducts: []
         }
+    },
+
+    components: {
+        'ProductItemCtlg': ProductItemCtlg
     },
 
     mounted() {
@@ -22,4 +26,4 @@ Vue.component('products-main', {
                     :product-item-ctlg="product"
                     ></product-item-ctlg>
                 </div>`
-});
+};

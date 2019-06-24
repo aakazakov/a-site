@@ -1,9 +1,13 @@
-Vue.component('products-single-pg', {
+const ProductsSinglePg = {
     data() {
         return {
             catalogUrl: '../json/products_page.json',
             receivedProducts: []
         }
+    },
+
+    components: {
+        'ProductItemCtlg': ProductItemCtlg
     },
 
     mounted() {
@@ -22,4 +26,4 @@ Vue.component('products-single-pg', {
                     :product-item-ctlg="product"
                     ></product-item-ctlg>
                 </section>`
-});
+};

@@ -1,9 +1,13 @@
-Vue.component('cart-drop-list', {
+const CartDropList = {
     data() {
         return {
             catalogUrl: '../json/products_cart.json',
             receivedProducts: []
         }
+    },
+
+    components: {
+        'CartDropProd': CartDropProd
     },
 
     mounted() {
@@ -30,4 +34,4 @@ Vue.component('cart-drop-list', {
                     <a class="cart-drop-prod__btn" href="checkout.html">Checkout</a>
                     <a class="cart-drop-prod__btn" href="cart.html">Go to cart</a>
                 </div>`
-});
+};
