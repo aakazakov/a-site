@@ -1,11 +1,15 @@
 //TODO add click handler to btn...
-
 const ProductItemCtlg = {
     props: ['productItemCtlg'],
+    methods: {
+        letTest(a) {
+            console.log(a);
+        }
+    },
     template: ` <div class="product">
                     <img class="product__img" :src="productItemCtlg.img" :alt="productItemCtlg.name">
                     <div class="product__cart-btn"
-                    @click="$root.$options.components.CartItems.methods.addProductToCart(productItemCtlg)">
+                    @click="$root.$refs.cartDropList.addProductToCart(productItemCtlg)">
                         <img class="product__cart-btn-img" src="../img/cart_white.svg" alt="cart">
                         <p class="product__cart-btn-text">Add to Cart</p>
                     </div>
@@ -35,7 +39,7 @@ const CartProduct = {
                         </div>
                         <span class="cart-product__price cart__grid-item">&#36;{{ cartProduct.price }}</span>
                         <div class="cart-product__quantity cart__grid-item">
-                            <input type="text" :placeholder="cartProduct.quantity">
+                            <input type="text" v-model="cartProduct.quantity">
                         </div>
                         <span class="cart-product__shipping cart__grid-item">free</span>
                         <span class="cart-product__subtotal cart__grid-item">&#36;{{ cartProduct.quantity*cartProduct.price  }}</span>
@@ -64,6 +68,6 @@ const CartDropProd = {
                             <span class="cart-drop-prod__price">{{ cartDropProd.price }}</span>
                         </p>
                     </div>
-                    <i class="fas fa-times-circle cart-drop-prod__del-btn"></i>
+                    <i @click="$emit('remove', cartDropProd)" class="fas fa-times-circle cart-drop-prod__del-btn"></i>
                 </div>`
 };  

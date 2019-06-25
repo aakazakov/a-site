@@ -1,14 +1,14 @@
 const app = new Vue({
     el: '#app',
     components: {
-        'CartItems': CartItems,
-        'CartDropList': CartDropList,
-        'ProductsCatalog': ProductsCatalog,
-        'ProductsMain': ProductsMain,
-        'ProductsSinglePg': ProductsSinglePg,
-        'ProductItemCtlg': ProductItemCtlg,
-        'CartProduct': CartProduct,
-        'CartDropProd': CartDropProd
+        'cart-items': CartItems,
+        'cart-drop-list': CartDropList,
+        'products-catalog': ProductsCatalog,
+        'products-main': ProductsMain,
+        'products-single-pg': ProductsSinglePg,
+        'product-item-ctlg': ProductItemCtlg,
+        'cart-product': CartProduct,
+        'cart-drop-prod': CartDropProd
     },
     methods: {
         getJson(url) {

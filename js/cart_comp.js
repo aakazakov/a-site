@@ -19,25 +19,6 @@ const CartItems = {
             });
     },
 
-    methods: {
-        addProductToCart(product) {
-            console.log(product);
-            // this.$parent.getJson('../json/addToCart.json')
-            //     .then(data => {
-            //         if (data.result) {
-            //             let find = this.cartProducts
-            //                 .find(elem => elem.id === product.id);
-            //             if (find) {
-            //                 find.quantity++;
-            //             } else {
-            //                 let productInCart = {quantity: 1, ...product};
-            //                 this.cartProducts.push(productInCart);
-            //             }
-            //         }
-            //     })
-        }
-    },
-
     template: `<section class="cart__items">
                     <cart-product
                     v-for="product of cartProducts"
