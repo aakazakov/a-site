@@ -10,12 +10,11 @@ const app = new Vue({
         'cart-product': CartProduct,
         'cart-drop-prod': CartDropProd
     },
-
     methods: {
         getJson(url) {
             return fetch(url)
                 .then(result => result.json())
                 .catch(error => alert(error));
-        },
+        }
     }
 });

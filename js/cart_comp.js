@@ -17,11 +17,11 @@ const CartItems = {
         //             this.cartProducts.push(elem);
         //         }
         //     });
-        this.synchroniseBetweenCartComps()
+        this.syncBetweenCartComps()
     },
 
     methods: {
-        synchroniseBetweenCartComps() {
+        syncBetweenCartComps() {
             this.cartProducts = this.$root.$refs.cartDropList.cartDropProducts;
         }
     },

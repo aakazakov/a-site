@@ -39,6 +39,21 @@ const ProductItemCtlg = {
 
 const CartProduct = {
     props: ['cartProduct'],
+    methods: {
+        inputHandler(product, newQuantity) {
+            if(!Number.isNaN(+newQuantity)) {
+                this.makeChangeQuantityInLocalStorage(product, Math.round(Math.abs(+newQuantity)));
+            }
+            return;    
+        },
+        makeChangeQuantityInLocalStorage(product, newQuantity) {
+            if (this.$root.$refs.cartDropList.canUseLocalStorage()) {
+                let storageItem = JSON.parse(localStorage.getItem(`${product.id}`));
+                storageItem.quantity = newQuantity;
+                localStorage.setItem(`${product.id}`, JSON.stringify(storageItem));
+            }            
+        }
+    },
     template: `<div class="cart-product cart__grid">
                     <div class="cart-product__item cart__grid-item">
                         <img class="cart-product__img" :src="cartProduct.img" :alt="cartProduct.name">
@@ -53,7 +68,7 @@ const CartProduct = {
                         </div>
                         </div>
                         <span class="cart-product__price cart__grid-item">&#36;{{ cartProduct.price }}</span>
-                        <div class="cart-product__quantity cart__grid-item">
+                        <div class="cart-product__quantity cart__grid-item" @change="inputHandler(cartProduct, cartProduct.quantity)">
                             <input type="text" v-model.lazy="cartProduct.quantity">
                         </div>
                         <span class="cart-product__shipping cart__grid-item">free</span>
@@ -73,7 +88,7 @@ const CartDropProd = {
             if (isNaN(value)) {
                 return 0;
             }
-            return Math.round(value);
+            return Math.round(Math.abs(value));
         }
     },
     template: `<div class="cart-drop-prod">

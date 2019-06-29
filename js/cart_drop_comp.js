@@ -12,19 +12,21 @@ const CartDropList = {
     },
 
     mounted() {
-        this.$parent.getJson(this.catalogUrl)
-            .then(data => {
-                for (let elem of data.contents) {
-                    this.cartDropProducts.push(elem);
-                }
-            })
+        // this.$parent.getJson(this.catalogUrl)
+        //     .then(data => {
+        //         for (let elem of data.contents) {
+        //             this.cartDropProducts.push(elem);
+        //         }
+        //     })
+
+        this.getDataFromLocalStorage();
     },
 
     computed: {
         totalAmount() {
             let totalAmount = 0;
             this.cartDropProducts.forEach(item => {
-                if(isNaN(+item.quantity)) {
+                if (isNaN(+item.quantity)) {
                     return 0;
                 }
                 totalAmount += Math.abs(+item.quantity);
@@ -35,7 +37,7 @@ const CartDropList = {
         totalCost() {
             let totalPrice = 0;
             this.cartDropProducts.forEach(item => {
-                let total = Math.round(Math.abs(+item.quantity))*item.price;
+                let total = Math.round(Math.abs(+item.quantity)) * item.price;
                 if (isNaN(total)) {
                     return 0;
                 }
@@ -43,13 +45,57 @@ const CartDropList = {
             });
             if (Number.isInteger(totalPrice)) {
                 return totalPrice;
-            }else {
+            } else {
                 return totalPrice.toFixed(2);
-            }            
+            }
         }
     },
 
     methods: {
+        canUseLocalStorage() {
+            try {
+                localStorage.setItem('mod', 'mod');
+                localStorage.removeItem('mod');
+                return true;
+            } catch (err) {
+                console.log(`localStorageErr: ${err}`);
+                return false;
+            }
+        },
+
+        getDataFromLocalStorage() {
+            if (this.canUseLocalStorage()) {
+                this.cartDropProducts = [];
+                if (localStorage.length) {
+                    let storageObg = {};
+                    Object.assign(storageObg, localStorage);
+                    for (let [key, value] of Object.entries(storageObg)) {
+                        this.cartDropProducts.push(JSON.parse(value));
+                    }
+                }
+            }
+        },
+
+        addProductToLocalStorage(product) {
+            if (this.canUseLocalStorage()) {
+                localStorage.setItem(`${product.id}`, JSON.stringify(product));
+            }
+        },
+
+        removeProductFromLocalStorage(product) {
+            if (this.canUseLocalStorage()) {
+                localStorage.removeItem(`${product.id}`);
+            }
+        },
+
+        makeChangeProductInStorage(product, num) {
+            if (this.canUseLocalStorage()) {
+                let storageItem = JSON.parse(localStorage.getItem(`${product.id}`));
+                storageItem.quantity += num;
+                localStorage.setItem(`${product.id}`, JSON.stringify(storageItem));
+            }
+        },
+
         addProductToCart(product) {
             this.$parent.getJson('../json/addToCart.json')
                 .then(data => {
@@ -57,9 +103,14 @@ const CartDropList = {
                         let find = this.cartDropProducts.find(elem => elem.id === product.id);
                         if (find) {
                             find.quantity++;
+                            this.makeChangeProductInStorage(find, 1);
                         } else {
-                            let productInCart = {quantity: 1, ...product};
+                            let productInCart = {
+                                quantity: 1,
+                                ...product
+                            };
                             this.cartDropProducts.push(productInCart);
+                            this.addProductToLocalStorage(productInCart);
                         }
                     }
                 })
@@ -67,24 +118,26 @@ const CartDropList = {
 
         removeProductFromCart(product) {
             this.$parent.getJson('../json/removeFromCart.json')
-            .then(data => {
-                if (data.result) {
-                    let find = this.cartDropProducts.find(elem => elem.id === product.id);
-                    if (find.quantity > 1) {
-                        find.quantity--;
-                    } else {
-                        let findIdx = this.cartDropProducts.indexOf(find);
-                        this.cartDropProducts.splice(findIdx, 1);
+                .then(data => {
+                    if (data.result) {
+                        let find = this.cartDropProducts.find(elem => elem.id === product.id);
+                        if (find.quantity > 1) {
+                            find.quantity--;
+                            this.makeChangeProductInStorage(find, -1);
+                        } else {
+                            let findIdx = this.cartDropProducts.indexOf(find);
+                            this.cartDropProducts.splice(findIdx, 1);
+                            this.removeProductFromLocalStorage(product);
+                        }
                     }
-                }
-            })
+                })
         },
 
         calcPrice(quantity, price) {
             if (isNaN(+quantity)) {
-               return 0;
+                return 0;
             }
-            return Math.round(Math.abs(+quantity))*price;           
+            return Math.round(Math.abs(+quantity)) * price;
         }
     },
 
