@@ -42,16 +42,9 @@ const CartProduct = {
     methods: {
         inputHandler(product, newQuantity) {
             if(!Number.isNaN(+newQuantity)) {
-                this.makeChangeQuantityInLocalStorage(product, Math.round(Math.abs(+newQuantity)));
+                this.$root.$refs.cartDropList.makeChangeQuantityInLocalStorage(product, Math.round(Math.abs(+newQuantity)));
             }
             return;    
-        },
-        makeChangeQuantityInLocalStorage(product, newQuantity) {
-            if (this.$root.$refs.cartDropList.canUseLocalStorage()) {
-                let storageItem = JSON.parse(localStorage.getItem(`${product.id}`));
-                storageItem.quantity = newQuantity;
-                localStorage.setItem(`${product.id}`, JSON.stringify(storageItem));
-            }            
         }
     },
     template: `<div class="cart-product cart__grid">
@@ -73,7 +66,7 @@ const CartProduct = {
                         </div>
                         <span class="cart-product__shipping cart__grid-item">free</span>
                         <span class="cart-product__subtotal cart__grid-item">&#36;
-                        {{ this.$root.$refs.cartDropList.calcPrice(cartProduct.quantity, cartProduct.price) }}</span>
+                        {{ this.$root.$refs.cartDropList.calcPrice(cartProduct.price, cartProduct.quantity) }}</span>
                         <span class="cart-product__del-btn cart__grid-item"
                         @click="$root.$refs.cartDropList.removeProductFromCart(cartProduct)">
                             <i class="fas fa-times-circle cart-product__del-btn_padding"></i>
@@ -89,7 +82,7 @@ const CartDropProd = {
                 return 0;
             }
             return Math.round(Math.abs(value));
-        }
+        },
     },
     template: `<div class="cart-drop-prod">
                     <img class="cart-drop-prod__img" :src="cartDropProd.img" :alt="cartDropProd.name">
@@ -106,7 +99,7 @@ const CartDropProd = {
                             <span class="cart-drop-prod__quantity">{{ ifIsNan(cartDropProd.quantity) }}</span>
                             &#160;&#215;&#8194;$
                             <span class="cart-drop-prod__price">
-                            {{ this.$root.$refs.cartDropList.calcPrice(cartDropProd.quantity, cartDropProd.price) }}
+                            {{ this.$root.$refs.cartDropList.calcPrice(cartDropProd.price, cartDropProd.quantity) }}
                             </span>
                         </p>
                     </div>

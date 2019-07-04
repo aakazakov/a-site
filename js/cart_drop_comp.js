@@ -96,6 +96,20 @@ const CartDropList = {
             }
         },
 
+        makeChangeQuantityInLocalStorage(product, newQuantity) {
+            if (this.$root.$refs.cartDropList.canUseLocalStorage()) {
+                let storageItem = JSON.parse(localStorage.getItem(`${product.id}`));
+                storageItem.quantity = newQuantity;
+                localStorage.setItem(`${product.id}`, JSON.stringify(storageItem));
+            }            
+        },
+
+        clearLocalStorage() {
+            if (this.canUseLocalStorage()) {
+                localStorage.clear();
+            }           
+        },
+
         addProductToCart(product) {
             this.$parent.getJson('../json/addToCart.json')
                 .then(data => {
@@ -133,7 +147,13 @@ const CartDropList = {
                 })
         },
 
-        calcPrice(quantity, price) {
+        clearCart() {
+            this.cartDropProducts = [];
+            this.$root.$refs.cartItems.syncBetweenCartComps();
+            this.clearLocalStorage();
+        },
+
+        calcPrice(price, quantity) {
             if (isNaN(+quantity)) {
                 return 0;
             }

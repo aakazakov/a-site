@@ -53,7 +53,7 @@ const CartItems = {
                         ></cart-product>
                     </section>
                     <div class="cart__clear-or-continue">
-                        <button class="cart__btn cart__clear-btn" type="button">cLEAR SHOPPING CART</button>
+                        <button class="cart__btn cart__clear-btn" type="button" @click="$root.$refs.cartDropList.clearCart()">cLEAR SHOPPING CART</button>
                         <a class="cart__btn cart__continue-btn" href="catalog.html">cONTINUE sHOPPING</a>
                     </div>
                     <div class="cart__other">
