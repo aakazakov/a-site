@@ -1,2 +1,2 @@
 # a-site
-js-homeworks
+js-homework
