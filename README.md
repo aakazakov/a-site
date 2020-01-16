@@ -1,2 +1,2 @@
 # a-site
-js-homework
+Frontend practice example
